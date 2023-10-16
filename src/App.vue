@@ -1,26 +1,58 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+  <div id="app">
+    <div id="body-application" class="container black-scheleton">
+      <WhatsappDashboard />
+      <ChatSection />
+    </div>
+ </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ChatSection from './components/ChatSection.vue'
+import WhatsappDashboard from './components/WhatsappDashboard.vue';
+import { contactsManagementStore } from '@/store/store'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ChatSection,
+    WhatsappDashboard
+},
+  data(){
+    return {
+      store: contactsManagementStore()
+    }
+  },
+  methods: {
+  },
+  computed: {
+  },
+  created () {
+    
+  },
+  mounted () {
+
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped lang="scss">
+@import "./assets/scss/style.scss";
+
+#app{
+  width: 100vw;
+  height: 100vh;
+
+  padding: 50px 0;
+}
+
+#body-application{
+  width: 100%;
+  height: 100%;
+
+  margin: 0 auto;
+
+  display: flex;
 }
 </style>
