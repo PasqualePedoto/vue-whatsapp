@@ -1,60 +1,68 @@
 <template>
-    <div id="whatsapp-dashboard" class="red-scheleton">
-        <UserCard id="user-card" class="yellow-scheleton" />
-        <div class="contacts">
-            <ContactCard @click="changeChat(contact.id)" class="contact-card" v-for="(contact, index) in store.contacts" :key="index" :contact="contact" />
-        </div>
-   </div>
-  </template>
-  
-  <script>
-import ContactCard from './ContactCard.vue';
-import UserCard from './UserCard.vue'; 
+  <div id="whatsapp-dashboard" class="red-scheleton">
+    <UserCard id="user-card" class="yellow-scheleton" />
+    <div class="contacts">
+      <ContactCard
+        @click="changeChat(contact.id)"
+        class="contact-card"
+        v-for="(contact, index) in store.contacts"
+        :key="index"
+        :contact="contact"
+      />
+    </div>
+  </div>
+</template>
+
+<script>
+import ContactCard from './ContactCard.vue'
+import UserCard from './UserCard.vue'
 import { contactsManagementStore } from '@/store/store'
-  export default {
-    name: 'WhatsappSection',
-    components: {
+export default {
+  name: 'WhatsappSection',
+  components: {
     UserCard,
     ContactCard
-    },data(){
-      return {
-        store: contactsManagementStore()
-      }
-    },props: {
-    },
-    methods: {
-      changeChat(id){
-        this.store.changeCurrentContact(id)
-      }
-    },
-    mounted(){
+  },
+  data() {
+    return {
+      store: contactsManagementStore()
     }
-  }
-  </script>
-  
-  <style scoped lang="scss">
-  @import "./../assets/scss/style.scss";
-  #whatsapp-dashboard{
-    flex-basis: 30%;
+  },
+  props: {},
+  methods: {
+    changeChat(id) {
+      this.store.changeCurrentContact(id)
+      console.log(this.store.contacts)
+      console.log(this.store.currentContact)
+    }
+  },
+  mounted() {}
+}
+</script>
 
-    display: flex;
-    flex-direction: column;
-  }
+<style scoped lang="scss">
+@import './../assets/scss/style.scss';
+#whatsapp-dashboard {
+  flex-basis: 30%;
 
-  #user-card{
-    // In modo che la label dell'utente non si restringe
-    flex-shrink: 0;
-    flex-basis: 15%;
-  }
+  display: flex;
+  flex-direction: column;
+}
 
-  .contacts{
-    flex-basis: 85%;
-    overflow: auto;
-  }
+#user-card {
+  // In modo che la label dell'utente non si restringe
+  flex-shrink: 0;
+  flex-basis: 15%;
+}
+
+.contacts {
+  flex-basis: 85%;
+  overflow: auto;
+}
 
 // Customize Scroll-bar
 
-  /* width */
+/* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -75,8 +83,7 @@ import { contactsManagementStore } from '@/store/store'
   background: white;
 }
 
-.contact-card{
+.contact-card {
   cursor: pointer;
 }
-  </style>
-  
+</style>

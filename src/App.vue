@@ -5,49 +5,40 @@
       <WhatsappDashboard />
       <ChatSection />
     </div>
- </div>
+  </div>
 </template>
 
 <script>
 import ChatSection from './components/ChatSection.vue'
-import WhatsappDashboard from './components/WhatsappDashboard.vue';
-import { contactsManagementStore } from '@/store/store'
+import WhatsappDashboard from './components/WhatsappDashboard.vue'
 
 export default {
   name: 'App',
   components: {
     ChatSection,
     WhatsappDashboard
-},
-  data(){
-    return {
-      store: contactsManagementStore()
-    }
   },
-  methods: {
+  data() {
+    return {}
   },
-  computed: {
-  },
-  created () {
-    
-  },
-  mounted () {
-
-  }
+  methods: {},
+  computed: {},
+  created() {},
+  mounted() {}
 }
 </script>
 
 <style scoped lang="scss">
-@import "./assets/scss/style.scss";
+@import './assets/scss/style.scss';
 
-#app{
+#app {
   width: 100vw;
   height: 100vh;
 
   padding: 50px 0;
 }
 
-#body-application{
+#body-application {
   width: 100%;
   height: 100%;
 
