@@ -7,7 +7,7 @@
       <div id="contact-name">{{ contact.name }}</div>
       <div id="last-message-box">
         <div class="last-message">
-          <div>{{ lastMessage }}</div>
+          {{ lastMessage }}
         </div>
         <div class="visualization">
           <i class="fa-solid fa-check-double" style="color: #3cc809"></i>
@@ -57,6 +57,7 @@ img {
 }
 
 .contact-info {
+  height: 100%;
   margin-left: 20px;
 
   flex-grow: 1;
@@ -70,6 +71,17 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  height: 50%;
+  max-height: 50%;
+
+  .last-message {
+    width: 250px; /* Imposta la larghezza desiderata del contenitore */
+    height: 100%; /* Imposta l'altezza desiderata del contenitore */
+    overflow: hidden; /* Nasconde il testo che eccede le dimensioni del contenitore */
+    white-space: nowrap; /* Evita il riavvolgimento del testo su più righe */
+    text-overflow: ellipsis; /* Aggiunge "..." alla fine del testo che supera il contenitore */
+  }
 }
 
 .visualization {

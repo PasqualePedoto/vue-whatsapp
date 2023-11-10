@@ -76,7 +76,7 @@ export default {
 #land-message {
   flex-basis: 72%;
 
-  background-image: url('../assets/bgi-whatsapp.jpg');
+  background-image: url('../assets/whatsapp-bg.jpeg');
   background-position: center;
   background-repeat: repeat;
   background-size: contain;

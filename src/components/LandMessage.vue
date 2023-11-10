@@ -1,50 +1,34 @@
 <template>
   <div class="land-message">
-    <div class="message" v-for="(element, index) in store.contacts[store.currentContact].chat" :key="index">
-      {{ element.message }}
+    <div
+      v-for="(element, index) in store.contacts[store.currentContact].chat"
+      :key="index"
+    >
+      <message-component :message="element"></message-component>
     </div>
   </div>
 </template>
 
 <script>
-import { contactsManagementStore } from '@/store/store';
+import { contactsManagementStore } from '@/store/store'
+import MessageComponent from './MessageComponent.vue'
 
-  export default  {
-    name: 'land-message',
-    props: {
-      chat: Array
-    },
-    mounted () {
-
-    },
-    data () {
-      return {
-        store: contactsManagementStore()
-      }
-    },
-    methods: {
-
-    },
-    computed: {
-
+export default {
+  components: { MessageComponent },
+  name: 'land-message',
+  props: {},
+  mounted() {},
+  data() {
+    return {
+      store: contactsManagementStore()
     }
+  },
+  methods: {},
+  computed: {}
 }
-
-
 </script>
 
 <style scoped lang="scss">
-  .land-message {
-
-  }
-
-  .message{
-    background-color: greenyellow;
-    color: black;
-
-    font-size: large;
-
-
-    margin: 10px;
-  }
+.land-message {
+}
 </style>
